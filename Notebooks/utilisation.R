@@ -12,12 +12,14 @@ path <- "C:/Users/../ccs_excel"
 ## utiliser la fonction import_cl_excel()
 ctl <- import_cl_excel(path = path, ext = "xlsx")
 
+## historique vache
+vach_hst <- historique_vach(ctl)
+
 ## calcul d'indicateurs mensuels
 ind_mois <- indic_mam_mois(ctl)
 
 ## calcul d'indicateurs mensuels avec bornes temporelles
 ind_mois <- indic_mam_mois(ctl, date_debut = "2021-01-01", date_fin = "2022-01-01")
-
 
 ## calcul d'indicateurs annuels
 ind_an <- indic_mam_periode(ctl)
