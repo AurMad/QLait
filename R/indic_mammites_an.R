@@ -54,8 +54,8 @@ indic_mam_periode <- function(ctrl_indiv = data.frame(),
                           length(ctrl_indiv$ccs[ctrl_indiv$j_lac < 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev >= 300 & !is.na(ctrl_indiv$ccs)]), 3),
     incid_taris = round(length(ctrl_indiv$ccs[ctrl_indiv$j_lac >= 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev < 300 & !is.na(ctrl_indiv$ccs) & ctrl_indiv$ccs >= 300]) /
                           length(ctrl_indiv$ccs[ctrl_indiv$j_lac >= 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev < 300 & !is.na(ctrl_indiv$ccs)]), 3),
-    gueri_taris = round(length(ctrl_indiv$ccs[ctrl_indiv$j_lac >= 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev >= 300 & !is.na(ctrl_indiv$ccs) & ctrl_indiv$ccs < 300]) /
-                          length(ctrl_indiv$ccs[ctrl_indiv$j_lac >= 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev >= 300 & !is.na(ctrl_indiv$ccs)]), 3),
+    gueri_taris = round(length(ctrl_indiv$ccs[ctrl_indiv$j_lac < 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev >= 300 & !is.na(ctrl_indiv$ccs) & ctrl_indiv$ccs < 300]) /
+                          length(ctrl_indiv$ccs[ctrl_indiv$j_lac < 31 & !is.na(ctrl_indiv$ccs_prev) & ctrl_indiv$ccs_prev >= 300 & !is.na(ctrl_indiv$ccs)]), 3),
     prev_primi_ctl1 = round(length(ctrl_indiv$ccs[ctrl_indiv$rang_lac ==1 & ctrl_indiv$j_lac >= 31 & ctrl_indiv$ccs > 300]) /
                               length(ctrl_indiv$ccs[ctrl_indiv$rang_lac ==1 & ctrl_indiv$j_lac >= 31]), 3))
 
