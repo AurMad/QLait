@@ -1,3 +1,11 @@
+#' Création d'un historique cellules
+#'
+#' @param cl
+#'
+#' @return
+#' @export
+#'
+#' @examples
 historique_vach <- function(cl){
 
   cl_wide <- cl |>
