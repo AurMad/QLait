@@ -44,7 +44,7 @@ indic_mam_mois <- function(ctrl_indiv = data.frame(),
     n_primi = length(unique(num_vach[rang_lac == 1])),
     n_ctl1 = length(unique(num_vach[j_lac < 31])),
     n_primi_ctl1 = length(unique(num_vach[rang_lac == 1 & j_lac < 31])),
-    ccs_trp = round(sum(ccs * lait) / sum(lait), 0),
+    ccs_trp = round(sum(ccs[!is.na(ccs)] * lait[!is.na(ccs)]) / sum(lait[!is.na(ccs)]), 0),
     prev_ccs_bas = round(length(ccs[!is.na(ccs) & ccs < 300]) /
                            length(ccs[!is.na(ccs)]), 3),
     prev_ccs_bas_p1 = round(length(ccs[rang_lac == 1 & !is.na(ccs) & ccs < 300]) /

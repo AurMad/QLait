@@ -8,4 +8,4 @@ Description: Calcul d'indicateurs à partir des données contrôle laitier, pour
 License: GNU General Public License v3.0
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3

@@ -31,6 +31,9 @@ test_header_xl <- function(file, sheet = 1){
   row1 <- suppressMessages(as.vector(readxl::read_excel(file, sheet = sheet, col_names = FALSE, n_max = 1)))
   ## noms de colonnes recherchés
   hr_names <- c("N°", "Nom", "Vêlage", "N°\r\nLac.", "Durée", "Lait kg", "Leuco mil./ ml")
+  hr_names <- gsub("[\r\n]", "", hr_names)
+  hr_names <- gsub("\\\\", "", hr_names)
+  hr_names <- gsub(" ", "", hr_names)
   ## identification des noms de colonnes
   col_match <- match(hr_names, row1)
 
@@ -39,6 +42,10 @@ test_header_xl <- function(file, sheet = 1){
 
     row_header <- row_header + 1
     row1 <- suppressMessages(as.character(as.vector(readxl::read_excel(file, sheet = sheet, col_names = FALSE, n_max = 1, skip = row_header))))
+    row1 <- gsub("[\r\n]", "", row1)
+    row1 <- gsub("\\\\", "", row1)
+    row1 <- gsub(" ", "", row1)
+
     col_match <- match(hr_names, row1)
 
   }
@@ -66,7 +73,10 @@ test_header_xl <- function(file, sheet = 1){
 check_names_cl <- function(header_names){
 
   ## Noms de colonnes attendus
-  hr_names <- c("N°", "Nom", "Vêlage", "N°\r\nLac.", "Durée", "Lait kg", "Leuco mil./ ml")
+  hr_names1 <- c("N°", "Nom", "Vêlage", "N°\r\nLac.", "Durée", "Lait kg", "Leuco mil./ ml")
+  hr_names <- gsub("[\r\n]", "", hr_names1)
+  hr_names <- gsub("\\\\", "", hr_names)
+  hr_names <- gsub(" ", "", hr_names)
 
   ## Vérification de la présence des colonnes recherchées
   name_chk <- match(hr_names, header_names)
@@ -198,6 +208,8 @@ import_cl_excel <- function(path = getwd(), ext = "xlsx", donnees_manquantes = F
 
   cl <- cl[, c("date_ctrl", "num_vach", "nom_vach", "date_vel",
                "rang_lac", "j_lac", "lait", "ccs")]
+
+  cl$ccs[cl$ccs == 0] <- NA
 
   cl <- cl[order(cl$date_ctrl, cl$num_vach),]
 
