@@ -2,5 +2,6 @@
 
 export(historique_vach)
 export(import_cl_excel)
+export(import_cl_pdf)
 export(indic_mam_mois)
 export(indic_mam_periode)
